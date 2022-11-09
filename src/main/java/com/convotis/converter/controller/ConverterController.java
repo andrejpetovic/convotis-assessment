@@ -31,8 +31,8 @@ public class ConverterController {
 		try {
 			csvReturnValue = converterService.convert(fromValue, ConvertableFileType.JSON, ConvertableFileType.CSV);
 		}catch (ConverterException e){
-			log.error(e.getMessage());
-			return e.getMessage();
+			log.error(e.getMessage() +". Cause:"+ e.getCause().getMessage());
+			return e.getMessage() +". Cause:"+ e.getCause().getMessage();
 		}
 		return  csvReturnValue;
 	}
